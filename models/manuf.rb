@@ -1,8 +1,8 @@
 require_relative('../db/sql_runner')
 
 class Manufacturer
-  attr_reader(:id)
-  attr_accessor(:name, :sector)
+  attr_reader :id
+  attr_accessor :name, :sector
 
   def initialize(options)
     @id = options['id'].to_i if options['id']

@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner')
+require_relative('../models/item')
+require_relative('../models/manuf')
 
 class Stock
   attr_reader(:id, :item_id, :manuf_id)
@@ -28,6 +30,20 @@ class Stock
     sql = "DELETE FROM stock WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def product()
+    sql = "SELECT * FROM items WHERE id = $1"
+    values = [@item_id]
+    item = SqlRunner.run(sql, values)
+    return Item.new(item.first)
+  end
+
+  def manufacturer()
+    sql = "SELECT * FROM manufacturers WHERE id = $1"
+    values = [@manuf_id]
+    brand = SqlRunner.run(sql, values)
+    return Manufacturer.new(brand.first)
   end
 
   def self.find(id)

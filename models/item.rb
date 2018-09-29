@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require ('bigdecimal')
 
 class Item
   attr_reader(:id, :product, :category)
@@ -30,6 +31,14 @@ class Item
     sql = "DELETE FROM items WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  # this is the percentage markup (aka % increase in retail v wholesale price)
+  def margin()
+    percentage = (@costprice.to_f / @sellprice.to_f)
+    calc = BigDecimal('1.0') - percentage
+    result = calc * BigDecimal('100.0')
+    return result.to_i #((1.0 - (@costprice / @sellprice).to_f) * 100.0).to_i
   end
 
   def self.find(id)

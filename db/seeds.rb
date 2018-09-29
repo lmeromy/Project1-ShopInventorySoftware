@@ -45,5 +45,9 @@ stock3.save()
 
 stock3.quantity = 40
 stock3.update()
-# 
+
+
+
 # stock4.delete()
+binding.pry
+nil
