@@ -37,7 +37,7 @@ _So that I can see at a glance what stock I currently have in store_<br />
 **Acceptance Criteria:** Shop keepers should be able to view all of their stock on a single page.
 
 _As a shop keeper_<br />
-_I want to be highlighted to stock levels to be highlighted_<br />
+_I want stock levels to be highlighted_<br />
 _So that I can be aware of low, medium and high stock levels for particular items_<br />
 
 **Acceptance Criteria:** Shop keepers should be able to view stock levels in a coded manner i.e colour (red/orange/green) or "Low"/"Medium"/"High".
