@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner')
+require_relative('./stock')
+require_relative('./item')  #or is it just /item
 
 class Manufacturer
   attr_reader :id
@@ -27,6 +29,14 @@ class Manufacturer
     sql = "DELETE FROM manufacturers WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  # Shop keepers should be able to assign manufacturers to stock items.
+  def products()
+    sql = "SELECT items.* FROM items INNER JOIN stock ON stock.item_id = items.id WHERE manuf_id = $1"
+    values = [@id]
+    items = SqlRunner.run(sql, values)
+    return items.map{|item| Item.new(item)}
   end
 
   def self.find(id)

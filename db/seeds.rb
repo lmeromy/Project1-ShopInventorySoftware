@@ -9,10 +9,10 @@ Manufacturer.delete_all()
 Stock.delete_all()
 
 
-item1 = Item.new({'product' => 'Climbing Harness', 'category' => 'climb', 'costprice' => 50, 'sellprice' => 100})
-item2 = Item.new({'product' => 'Rope', 'category' => 'climb', 'costprice' => 84, 'sellprice' => 140})
-item3 = Item.new({'product' => 'Softshell jacket', 'category' => 'general', 'costprice' => 72, 'sellprice' => 120})
-item4 = Item.new({'product' => 'Insulated down jacket', 'category' => 'general', 'costprice' => 108, 'sellprice' => 180})
+item1 = Item.new({'product' => 'Climbing Harness', 'category' => 'Climb', 'costprice' => 50, 'sellprice' => 100})
+item2 = Item.new({'product' => 'Rope', 'category' => 'Climb', 'costprice' => 84, 'sellprice' => 140})
+item3 = Item.new({'product' => 'Softshell jacket', 'category' => 'General', 'costprice' => 72, 'sellprice' => 120})
+item4 = Item.new({'product' => 'Insulated down jacket', 'category' => 'General', 'costprice' => 108, 'sellprice' => 180})
 # binding.pry
 # nil
 item1.save()
@@ -23,14 +23,14 @@ item4.save()
 item1.costprice = 60
 item1.update
 
-manufacturer1 = Manufacturer.new({'name' => 'Black Diamond', 'sector' => 'gear'})
-manufacturer2 = Manufacturer.new({'name' => 'Patagonia', 'sector' => 'clothing'})
+manufacturer1 = Manufacturer.new({'name' => 'Black Diamond', 'sector' => 'Gear'})
+manufacturer2 = Manufacturer.new({'name' => 'Patagonia', 'sector' => 'Clothing'})
 
 
 manufacturer1.save()
 manufacturer2.save()
 
-manufacturer2.sector = 'technical clothing'
+manufacturer2.sector = 'Technical Clothing'
 manufacturer2.update()
 
 # add Jottnar, Mountain HArdware, Icelantic, La Sportiva, Melanzana

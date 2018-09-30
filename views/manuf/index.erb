@@ -1,0 +1,25 @@
+<h2>All Our Current Brand Manufacturer Partners:</h2>
+
+<form action="manuf/new" method="GET">
+  <input class="info-button" type="submit" value="Add New Manufacturer Brand"/>
+</form>
+
+<%for brand in @brands %>
+  <p>  Manufacturer Brand Name: <%= brand.name %> </p>
+  <p>  Industry Sector: <%= brand.sector %> </p>
+  <p>  Products Within Inventory:</p>
+  <ul>
+    <% brand.products.each do |item| %>
+    <li><%= item.product %></li>
+    <% end %>
+  </ul>
+
+  <form action="manuf/<%= brand.id%>/edit" method="GET">
+  <input class="info-button" type="submit" value="Update Manufacturer Information"/>
+  </form>
+
+  <form action="manuf/<%= brand.id%>/delete" method="POST">
+  <input class="info-button" type="submit" value="Delete Manufacturer"/>
+  </form>
+
+<% end %>
