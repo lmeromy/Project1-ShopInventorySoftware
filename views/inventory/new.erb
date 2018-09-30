@@ -1,0 +1,26 @@
+<h1>Add to your Inventory</h1>
+<h3>Add stock information</h3>
+
+<form action="/inventory" method="POST">
+
+  <label>Select a Product:
+    <select name="item_id">
+      <% for item in @items %>
+      <option value="<%= item.id %>"><%= item.product %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>Select a Brand:
+    <select name="manuf_id">
+      <% for brand in @manufacturers %>
+      <option value="<%= brand.id %>"><%= brand.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label for="quantity">Quantity in stock:</label>
+  <input id="quantity" type="number" name="quantity"/>
+
+  <input class="info-button" type='submit' value="Add stock to inventory">
+</form>

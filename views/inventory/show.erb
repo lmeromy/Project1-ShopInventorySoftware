@@ -12,7 +12,7 @@
 
 <p>Quantity in Stock: <%= @stock_item.quantity %> </p>
 
-<p><form action="inventory/new" method="GET">
+<p><form action="inventory/<%= entry.id%>/edit" method="GET">
   <input class="info-button" type="submit" value="Edit/Update Item" />
 </form></p>
 

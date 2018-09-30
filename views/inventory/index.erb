@@ -1,14 +1,18 @@
 <h1>All Current Inventory:</h1>
 
-<p><form action="inventory/new" method="GET">
-  <input class="info-button" type="submit" value="Add New Stock Items" />
-</form></p>
+<form action="inventory/new" method="GET">
+  <input class="info-button" type="submit" value="Add New Inventory"/>
+</form>
 
 <%for entry in @inventory %>
 <p>  Product name: <%= entry.product.product %> </p>
 <p>  Manufacturer: <%= entry.manufacturer.name %> </p>
 <p>  Quantity in Stock: <%= entry.quantity %> </p>
-<p><form action="inventory/<%= entry.id%>" method="GET">
-  <input class="info-button" type="submit" value="Product Details" />
-</form></p>
+<form action="inventory/<%= entry.id%>/edit" method="GET">
+  <input class="info-button" type="submit" value="Update Stock Information"/>
+</form>
+
+<form action="inventory/<%= entry.id%>/delete" method="POST">
+  <input class="info-button" type="submit" value="Delete From Inventory"/>
+</form>
 <% end %>
