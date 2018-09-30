@@ -33,16 +33,16 @@ get '/manuf/:id/edit' do
   erb(:"manuf/edit")
 end
 
-# # update route
-# post '/inventory/:id' do
-#   stock_item = Stock.new(params)
-#   stock_item.update()
-#   redirect to('/inventory')
-# end
-#
-# # delete route
-# post '/inventory/:id/delete' do
-#   stock_item = Stock.find(params['id'].to_i)
-#   stock_item.delete()
-#   redirect to('/inventory')
-# end
+# update route
+post '/manuf/:id' do
+  brand = Manufacturer.new(params)
+  brand.update()
+  redirect to('/manuf')
+end
+
+# delete route
+post '/manuf/:id/delete' do
+  brand = Manufacturer.find(params['id'].to_i)
+  brand.delete()
+  redirect to('/manuf')
+end

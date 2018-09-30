@@ -1,0 +1,27 @@
+<h2>Edit and update Manufacturer information</h2>
+
+<form method="POST" action="/manuf/<%=@brand_object.id%>">
+
+  <label for="name">Name of Brand:</label>
+  <input id="name" type="text" name="name" value="<%=@brand_object.name%>"/>
+
+
+  <label for="sector">Select Outdoor Industry Sector:</label>
+  <select name="sector" id="sector">
+    <option value="Gear"
+    <%= "selected" if @brand_object.sector == "Gear"%>>Gear</option>
+    <option value="Clothing"
+    <%= "selected" if @brand_object.sector == "Clothing"%>>Clothing</option>
+    <option value="Technical Clothing"
+    <%= "selected" if @brand_object.sector == "Technical Clothing"%>>Technical Clothing</option>
+    <option value="Gear & Technical Clothing"
+    <%= "selected" if @brand_object.sector == "Gear & Technical Clothing"%>>Gear & Technical Clothing</option>
+    <option value="Reference Material"
+    <%= "selected" if @brand_object.sector == "Reference Material"%>>Reference Material</option>
+    <option value="Footware"
+    <%= "selected" if @brand_object.sector == "Footware"%>>Footware</option>
+  </select>
+
+  <input type="submit" value="Update Manufacturer"/>
+
+</form>
