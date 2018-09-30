@@ -4,7 +4,7 @@ require_relative('models/stock')
 require_relative('models/item')
 require_relative('models/manuf')
 also_reload( '/models/*' )
-# require_relative('controllers/item_controller')
+require_relative('controllers/item_controller')
 require_relative('controllers/manuf_controller')
 require_relative('controllers/stock_controller')
 

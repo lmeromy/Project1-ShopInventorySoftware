@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner')
+require_relative('./manuf')
+require_relative('./stock')
 # require ('bigdecimal')
 
 class Item
@@ -31,6 +33,16 @@ class Item
     sql = "DELETE FROM items WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+# returns the manufacturer object linked to the given item
+  def brand()
+    sql = "SELECT manufacturers.* FROM manufacturers
+    INNER JOIN stock ON stock.manuf_id = manufacturers.id
+    WHERE item_id = $1"
+    values = [@id]
+    brand = SqlRunner.run(sql, values)
+    return brand.map{|manuf| Manufacturer.new(manuf)}[0]
   end
 
   # this is the percentage markup (aka % increase in retail v wholesale price)
