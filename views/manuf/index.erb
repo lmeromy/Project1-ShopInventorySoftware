@@ -1,25 +1,40 @@
 <h2>All Our Current Brand Manufacturer Partners:</h2>
 
 <form action="manuf/new" method="GET">
-  <input class="info-button" type="submit" value="Add New Manufacturer Brand"/>
+  <input class="new-button" type="submit" value="Add New Manufacturer Brand"/>
 </form>
 
-<%for brand in @brands %>
-  <p>  Manufacturer Brand Name: <%= brand.name %> </p>
-  <p>  Industry Sector: <%= brand.sector %> </p>
-  <p>  Products Within Inventory:</p>
-  <ul>
-    <% brand.products.each do |item| %>
-    <li><%= item.product %></li>
+<table id="manuf-all">
+  <thead>
+    <tr>
+      <th>Manufacturer Brand Name</th>
+      <th>Industry Sector</th>
+      <th>Products Within Current Inventory</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%for brand in @brands %>
+    <tr>
+      <td><%= brand.name %></td>
+      <td><%= brand.sector %></td>
+      <td><ul>
+        <% brand.products.each do |item| %>
+        <li><%= item.product %></li>
+        <% end %>
+      </ul></td>
+      <td>
+        <form action="manuf/<%= brand.id%>/edit" method="GET">
+          <input class="info-button" type="submit" value="Update Manufacturer Information"/>
+        </form>
+      </td>
+      <td>
+        <form action="manuf/<%= brand.id%>/delete" method="POST">
+          <input class="info-button" type="submit" value="Delete Manufacturer"/>
+        </form>
+      </td>
+    </tr>
     <% end %>
-  </ul>
-
-  <form action="manuf/<%= brand.id%>/edit" method="GET">
-  <input class="info-button" type="submit" value="Update Manufacturer Information"/>
-  </form>
-
-  <form action="manuf/<%= brand.id%>/delete" method="POST">
-  <input class="info-button" type="submit" value="Delete Manufacturer"/>
-  </form>
-
-<% end %>
+  </tbody>
+</table>

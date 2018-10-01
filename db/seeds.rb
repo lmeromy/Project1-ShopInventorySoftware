@@ -17,9 +17,9 @@ manufacturer2.save()
 manufacturer2.sector = 'Technical Clothing'
 manufacturer2.update()
 
-item1 = Item.new({'product' => 'Climbing Harness', 'category' => 'Climb', 'costprice' => 50, 'sellprice' => 100, 'manuf_id' => manufacturer1.id, 'quantity' => 100})
+item1 = Item.new({'product' => 'Climbing Harness', 'category' => 'Climb', 'costprice' => 50, 'sellprice' => 100, 'manuf_id' => manufacturer1.id, 'quantity' => 8})
 
-item2 = Item.new({'product' => 'Rope', 'category' => 'Climb', 'costprice' => 84, 'sellprice' => 140, 'manuf_id' => manufacturer1.id, 'quantity' => 50})
+item2 = Item.new({'product' => 'Rope', 'category' => 'Climb', 'costprice' => 84, 'sellprice' => 140, 'manuf_id' => manufacturer1.id, 'quantity' => 20})
 
 item3 = Item.new({'product' => 'Softshell jacket', 'category' => 'General', 'costprice' => 72, 'sellprice' => 120, 'manuf_id' => manufacturer2.id, 'quantity' => 50})
 
@@ -36,6 +36,7 @@ item1.update_stock_levels
 item1.costprice = 60
 item1.update
 
+Item.sort_stocklevels()
 
 # stock4.delete()
 binding.pry

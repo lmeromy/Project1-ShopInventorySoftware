@@ -1,0 +1,30 @@
+<h2>Manage Product Markup:</h2>
+
+</br>
+
+<table id="markup-all">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Manufacturer</th>
+      <th>Product Category</th>
+      <th>Margin (%)</th>
+      <th>Net Profit (£)</th>
+      <th>Edit Pricing For Sale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%for item in @items %>
+    <tr>
+      <td><%= item.product %></td>
+      <td><%= item.brand.name %> </td>
+      <td><%= item.category %></td>
+      <td><%= item.margin %> </td>
+      <td><%= item.net_profit %></td>
+      <td><form action="tools/<%= item.id%>/edit" method="GET">
+        <input class="info-button" type="submit" value="Edit Item Information"/>
+      </form></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

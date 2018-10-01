@@ -1,0 +1,43 @@
+body {
+  background: #F5ECCD;
+  color: #4C2C69;
+  font-family: "Comic Sans MS", sans-serif;
+}
+
+.info-button {
+  color: #F5ECCD;
+  background-color: #4C2C69;
+}
+
+.new-button {
+  color: #F5ECCD;
+  background-color: #4C2C69;
+  border: #44CFCB;
+  font-size: 18px;
+}
+
+.Main-button {
+  color: #F5ECCD;
+  background-color: #4C2C69;
+}
+
+#manuf-all {
+  border-collapse: collapse;
+  background-color: #188e5b;
+
+}
+
+#inventory-all {
+  border-collapse: collapse;
+  background-color: #188e5b;
+}
+
+th {
+  border: 1px solid #122C34;
+  padding: 10px;
+}
+
+td {
+  border: 1px solid #122C34;
+  padding: 10px;
+}
