@@ -1,11 +1,12 @@
 require_relative('../db/sql_runner')
 require_relative('./manuf')
 # require ('bigdecimal')
+require('pry')
 
 class Item
   attr_reader(:id, :product, :category)
   # do I need accessor yet? No, but I think I will later
-  attr_accessor(:costprice, :sellprice, :manuf_id, :quantity)
+  attr_accessor(:costprice, :sellprice, :manuf_id, :quantity, :stock_level)
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -15,6 +16,7 @@ class Item
     @sellprice = options['sellprice'].to_i
     @manuf_id = options['manuf_id'].to_i
     @quantity = options['quantity'].to_i
+    @stock_level = stock_level
   end
 
   def save()
@@ -42,6 +44,23 @@ class Item
     values = [@manuf_id]
     brand = SqlRunner.run(sql, values)
     return brand.map{|manuf| Manufacturer.new(manuf)}[0]
+  end
+
+  # Shop keepers should be able to view stock levels in a coded manner i.e colour (red/orange/green) or "Low"/"Medium"/"High".
+
+  def update_stock_levels
+    case self.quantity
+    when 0...10
+      @stock_level = 'Reorder Stock Now!'
+    when 10...30
+      @stock_level = 'Low'
+    when 30...60
+      @stock_level = 'Medium'
+    else
+      @stock_level = 'High'
+    end
+    self.update()
+    return @stock_level
   end
 
   # this is the percentage markup (aka % increase in retail v wholesale price)

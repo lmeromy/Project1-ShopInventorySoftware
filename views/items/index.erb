@@ -4,20 +4,35 @@
   <input class="info-button" type="submit" value="Add New Item"/>
 </form>
 
-<%for item in @items %>
-  <p>  Product Name: <%= item.product %> </p>
-  <p>  Manufacturer: <%= item.brand.name %> </p>
-  <p>  Product Category: <%= item.category %> </p>
-  <p>  Wholesale Cost: <%= item.costprice %> </p>
-  <p>  Retail Price: <%= item.sellprice %> </p>
-  <p>  Quantity in Stock: <%= item.quantity %> </p>
-
-  <form action="items/<%= item.id%>/edit" method="GET">
-    <input class="info-button" type="submit" value="Edit Item Information"/>
-  </form>
-
-  <form action="items/<%= item.id%>/delete" method="POST">
-    <input class="info-button" type="submit" value="Delete Item"/>
-  </form>
-
-<% end %>
+<table id="inventory-all">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Manufacturer</th>
+      <th>Product Category</th>
+      <th>Wholesale Cost</th>
+      <th>Retail Price</th>
+      <th>Quantity in Stock</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%for item in @items %>
+    <tr>
+      <td><%= item.product %></td>
+      <td><%= item.brand.name %> </td>
+      <td><%= item.category %></td>
+      <td><%= item.costprice %> </td>
+      <td><%= item.sellprice %></td>
+      <td><%= item.quantity %> </td>
+      <td><form action="items/<%= item.id%>/edit" method="GET">
+        <input class="info-button" type="submit" value="Edit Item Information"/>
+      </form></td>
+      <td><form action="items/<%= item.id%>/delete" method="POST">
+        <input class="info-button" type="submit" value="Delete Item"/>
+      </form></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

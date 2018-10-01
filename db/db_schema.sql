@@ -15,5 +15,6 @@ CREATE TABLE items (
   costprice INT4,
   sellprice INT4,
   manuf_id INT4 REFERENCES manufacturers(id) ON DELETE CASCADE,
-  quantity INT4
+  quantity INT4,
+  stock_level VARCHAR(255)
 );

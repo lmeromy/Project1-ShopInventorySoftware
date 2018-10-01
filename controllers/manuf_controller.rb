@@ -1,6 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-require_relative('../models/stock')
+
 require_relative('../models/item')
 require_relative('../models/manuf')
 also_reload( '/models/*' )

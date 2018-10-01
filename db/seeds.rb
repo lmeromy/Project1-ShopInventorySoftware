@@ -31,6 +31,8 @@ item2.save()
 item3.save()
 item4.save()
 
+item1.update_stock_levels
+
 item1.costprice = 60
 item1.update
 
