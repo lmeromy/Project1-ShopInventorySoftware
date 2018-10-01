@@ -47,7 +47,6 @@ class Item
   end
 
   # Shop keepers should be able to view stock levels in a coded manner i.e colour (red/orange/green) or "Low"/"Medium"/"High".
-
   def update_stock_levels
     case self.quantity
     when 0...10

@@ -13,6 +13,7 @@
       <th>Wholesale Cost</th>
       <th>Retail Price</th>
       <th>Quantity in Stock</th>
+      <th>Inventory Level</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -26,6 +27,7 @@
       <td><%= item.costprice %> </td>
       <td><%= item.sellprice %></td>
       <td><%= item.quantity %> </td>
+      <td><%= item.update_stock_levels %> </td>
       <td><form action="items/<%= item.id%>/edit" method="GET">
         <input class="info-button" type="submit" value="Edit Item Information"/>
       </form></td>
