@@ -1,10 +1,17 @@
 <h2>Manage Product Markup:</h2>
 
 </br>
-<form action="tools/" method="GET">
+<form action="tools/index" method="GET">
   <input class="info-button" type="submit" value="Back to Tools"/>
 </form>
 
+</br>
+
+<form action="tools/optimize_winter" method="POST">
+  <label for="margin"> Enter Desired Margin:</label>
+  <input id="margin" type="number" name="margin"/>
+  <input class="info-button" type="submit" value="Update Winter Item Markup"/>
+</form>
 </br>
 
 <table id="markup-all">
@@ -26,9 +33,6 @@
       <td><%= item.category %></td>
       <td><%= item.margin %> </td>
       <td><%= item.net_profit %></td>
-      <td><form action="tools/<%= item.id%>/edit" method="GET">
-        <input class="info-button" type="submit" value="Edit Item Markup Information"/>
-      </form></td>
     </tr>
     <% end %>
   </tbody>

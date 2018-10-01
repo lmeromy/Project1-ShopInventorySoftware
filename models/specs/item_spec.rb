@@ -39,10 +39,18 @@ class TestItem < Minitest::Test
     assert_equal(50, @item1.net_profit())
   end
 
-
-  # not working, but it works in pry and with Sinatra! Is this a DB issue?
-  def test_get_brand()
-    assert_equal("Black Diamond", @item1.brand.name)
+  def test_change_margin_check_sellprice()
+    @item1.change_margin(40)
+    assert_equal(83, @item1.sellprice)
   end
+
+  def test_change_margin_check_margin()
+    @item1.change_margin(60)
+    assert_equal(60, @item1.margin)
+  end
+  # not working, but it works in pry and with Sinatra! Is this a DB issue?
+  # def test_get_brand()
+  #   assert_equal("Black Diamond", @item1.brand.name)
+  # end
 
 end

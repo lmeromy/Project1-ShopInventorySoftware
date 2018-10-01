@@ -7,7 +7,7 @@ also_reload( '/models/*' )
 
 # index route for All items
 get '/items' do
-  @items = Item.all()
+  @items = Item.all_sort_category()
   erb(:"items/index")
 end
 

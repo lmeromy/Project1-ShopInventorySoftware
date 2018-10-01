@@ -68,6 +68,13 @@ class Item
     return calc
   end
 
+  def change_margin(delta)
+    calc = delta.to_f/100.0
+    new_sellprice = @costprice.to_f / (1.0-calc)
+    self.sellprice = new_sellprice.to_i
+    self.update()
+  end
+
   def net_profit()
     net = self.sellprice - self.costprice
     return net
@@ -88,7 +95,22 @@ class Item
     return result
   end
 
-  def self.sort_stocklevels
+  def self.all_sort_category()
+    sql = "SELECT * FROM items ORDER BY category"
+    items = SqlRunner.run(sql)
+    result = items.map { |item_object| Item.new(item_object)}
+    return result
+  end
+
+  def self.all_winter()
+    sql = "SELECT * FROM items WHERE category = Ski"
+    # values = ["Ski"]
+    items = SqlRunner.run(sql)
+    result = items.map { |item_object| Item.new(item_object)}
+    return result
+  end
+
+  def self.sort_stocklevels()
     items = self.all()
     items.each do |item|
       item.update_stock_levels

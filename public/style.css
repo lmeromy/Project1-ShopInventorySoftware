@@ -1,43 +1,90 @@
 body {
-  background: #F5ECCD;
-  color: #4C2C69;
+  background: #A4C3B2;
+  color: #F6FFF8;
   font-family: "Comic Sans MS", sans-serif;
 }
 
-.info-button {
-  color: #F5ECCD;
-  background-color: #4C2C69;
-}
-
-.new-button {
-  color: #F5ECCD;
-  background-color: #4C2C69;
-  border: #44CFCB;
-  font-size: 18px;
+h1 {
+  display: block;
 }
 
 .Main-button {
-  color: #F5ECCD;
-  background-color: #4C2C69;
+  color: #EAF4F4;
+  /* background-color: #6B9080; */
+  border: #F6FFF8;
+  font-family: "Comic Sans MS", sans-serif;
+  padding: 5px;
 }
 
-#manuf-all {
+.btn {
+  border:0px none;
+  border-radius: 3%;
+  padding: 8px 12px;
+  color: papayawhip;
+  cursor:pointer;
+  font-family: 'Special Elite', cursive;
+}
+
+.info-button {
+  color: #EAF4F4;
+  background-color: #6B9080;
+  font-family: "Comic Sans MS", sans-serif;
+  padding: 5px;
+}
+
+.new-button {
+  color: #EAF4F4;
+  background-color: #6B9080;
+  border: #F6FFF8;
+  font-size: 18px;
+  font-family: "Comic Sans MS", sans-serif;
+  padding: 5px;
+}
+
+/* these are the update markup buttons!  */
+.update-markup {
+  color: #EAF4F4;
+  background-color: #6B9080;
+  font-size: 16px;
+  font-family: "Comic Sans MS", sans-serif;
+}
+
+nav ul {
+  color: #6B9080;
+  display: flex;
+  padding: 0;
+  justify-content: space-around;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* this is the best way to style links! */
+li a, li a:link, li a:visited {
+  text-decoration: none;
+  color: #F6FFF8;
+  padding: 10px;
+}
+
+li a:hover, li a:active, li a:focus {
+background: #6B9080;
+}
+
+table {
   border-collapse: collapse;
-  background-color: #188e5b;
-
+  background-color: #CCE3DE;
 }
 
-#inventory-all {
-  border-collapse: collapse;
-  background-color: #188e5b;
-}
 
 th {
   border: 1px solid #122C34;
   padding: 10px;
+  background-color: #6B9080;
 }
 
 td {
   border: 1px solid #122C34;
   padding: 10px;
+  color: #6B9080;
 }
