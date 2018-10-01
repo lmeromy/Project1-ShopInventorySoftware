@@ -1,12 +1,11 @@
 require_relative('../db/sql_runner')
 require_relative('./manuf')
-require_relative('./stock')
 # require ('bigdecimal')
 
 class Item
   attr_reader(:id, :product, :category)
   # do I need accessor yet? No, but I think I will later
-  attr_accessor(:costprice, :sellprice)
+  attr_accessor(:costprice, :sellprice, :manuf_id, :quantity)
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -14,18 +13,20 @@ class Item
     @category = options['category']
     @costprice = options['costprice'].to_i
     @sellprice = options['sellprice'].to_i
+    @manuf_id = options['manuf_id'].to_i
+    @quantity = options['quantity'].to_i
   end
 
   def save()
-    sql = "INSERT INTO items (product, category, costprice, sellprice) VALUES ($1, $2, $3, $4) RETURNING id"
-    values = [@product, @category, @costprice, @sellprice]
+    sql = "INSERT INTO items (product, category, costprice, sellprice, manuf_id, quantity) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
+    values = [@product, @category, @costprice, @sellprice, @manuf_id, @quantity]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def update()
-    sql = "UPDATE items SET (product, category, costprice, sellprice) = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@product, @category, @costprice, @sellprice, @id]
+    sql = "UPDATE items SET (product, category, costprice, sellprice, manuf_id, quantity) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
+    values = [@product, @category, @costprice, @sellprice, @manuf_id, @quantity, @id]
     results = SqlRunner.run(sql, values)
   end
 
@@ -37,10 +38,8 @@ class Item
 
 # returns the manufacturer object linked to the given item
   def brand()
-    sql = "SELECT manufacturers.* FROM manufacturers
-    INNER JOIN stock ON stock.manuf_id = manufacturers.id
-    WHERE item_id = $1"
-    values = [@id]
+    sql = "SELECT * FROM manufacturers WHERE id = $1"
+    values = [@manuf_id]
     brand = SqlRunner.run(sql, values)
     return brand.map{|manuf| Manufacturer.new(manuf)}[0]
   end

@@ -1,5 +1,4 @@
 require_relative('../db/sql_runner')
-require_relative('./stock')
 require_relative('./item')  #or is it just /item
 
 class Manufacturer
@@ -33,7 +32,7 @@ class Manufacturer
 
   # Shop keepers should be able to assign manufacturers to stock items.
   def products()
-    sql = "SELECT items.* FROM items INNER JOIN stock ON stock.item_id = items.id WHERE manuf_id = $1"
+    sql = "SELECT * FROM items WHERE manuf_id = $1"
     values = [@id]
     items = SqlRunner.run(sql, values)
     return items.map{|item| Item.new(item)}

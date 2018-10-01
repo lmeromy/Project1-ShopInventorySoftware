@@ -1,8 +1,8 @@
-<h1>Add to your Inventory</h1>
+<h1>Add A New Product</h1>
 
-<h3>Add item information</h3>
+<h3>Enter Item Information:</h3>
 
-<form action="/item" method="POST">
+<form action="/items" method="POST">
 
   <label for="product"> Product Name:</label>
   <input id="product" type="text" name="product"/>
@@ -16,5 +16,16 @@
   <label for="retail">Retail Price:</label>
   <input id="retail" type="number" name="sellprice"/>
 
-  <input class="info-button" type='submit' value="Add item details to store records">
+  <label>Select a Brand:
+    <select name="manuf_id">
+      <% for brand in @manufacturers %>
+      <option value="<%= brand.id %>"><%= brand.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label for="quant">Quantity:</label>
+  <input id="quant" type="number" name="quantity"/>
+
+  <input class="info-button" type='submit' value="Add Item To Inventory">
 </form>

@@ -10,6 +10,7 @@
   <p>  Product Category: <%= item.category %> </p>
   <p>  Wholesale Cost: <%= item.costprice %> </p>
   <p>  Retail Price: <%= item.sellprice %> </p>
+  <p>  Quantity in Stock: <%= item.quantity %> </p>
 
   <form action="items/<%= item.id%>/edit" method="GET">
     <input class="info-button" type="submit" value="Edit Item Information"/>
