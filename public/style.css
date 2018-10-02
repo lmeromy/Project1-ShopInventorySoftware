@@ -2,59 +2,83 @@ body {
   background: #A4C3B2;
   color: #F6FFF8;
   font-family: "Avant Garde", sans-serif;
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
 }
 
 .header {
-  display: block;
-  padding: 10px;
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
   background: #6B9080;
   color: #F6FFF8;
+}
+
+
+h2 {
+  display: flex;
+  margin: 10px;
   justify-content: center;
+  color: #F6FFF8;
+  /* border-bottom: 1px solid #F6FFF8; */
 }
 
 .grid-row {
   display: flex;
   flex-direction: row;
-  /* color: #EAF4F4;
-  background-color: #6B9080;
-  border: #F6FFF8;
-  font-family: "Verdana", sans-serif;
-  justify-content: space-around;
-  padding: 5px; */
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
 }
-
+.grid-row-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+}
 .Main-button {
-  /* color: #EAF4F4;
-  background-color: #6B9080;
-  border: #F6FFF8;
-  font-family: "Verdana", sans-serif;
+  color: #EAF4F4;
+  background-color: #776258;
+  border: 1px solid #F6FFF8;
+  font-size: 24px;
+  font-family: "Avant Garde", sans-serif;
+  padding: 10px;
   justify-content: space-around;
-  padding: 5px; */
-
-  /* border:0px none;
-  border-radius: 3%;
-  padding: 8px 12px;
-  color: papayawhip;
-  cursor:pointer;
-  font-family: "Comic Sans MS", sans-serif; */
 }
-
+.Main-button:hover, .Main-button:active {
+  background: #2F52E0;
+}
 
 .info-button {
   color: #EAF4F4;
   background-color: #6B9080;
   font-family: "Avant Garde", sans-serif;
   padding: 5px;
+  font-size: 16px;
+}
+.info-button:hover, .info-button:active {
+  /* palatinate blue */
+  background: #2F52E0;
 }
 
 .new-button {
   color: #EAF4F4;
   background-color: #6B9080;
-  border: #F6FFF8;
+  border: 1px solid #F6FFF8;
   font-size: 18px;
   font-family: "Avant Garde", sans-serif;
   padding: 5px;
+  margin: 10px;
+}
+
+.new-button:hover, .new-button:active {
+    background: #776258;
 }
 
 /* I want to highlight the field which will actually update
@@ -68,12 +92,13 @@ the markup if changed (aka the retail price)!  */
 nav ul {
   color: #6B9080;
   display: flex;
-  padding: 20;
+  /* padding: 40; */
   justify-content: space-around;
+  margin: 20;
+  font-size: 20px;
+  background: #776258;
   border-bottom: 1px solid #6B9080;
   border-top: 1px solid #6B9080;
-  /* margin: 20; */
-  font-size: 20px;
 }
 
 li {
@@ -88,12 +113,14 @@ li a, li a:link, li a:visited {
 }
 
 li a:hover, li a:active, li a:focus {
-background: #c1a5a9;
+background: #776258;
 }
 
 table {
   border-collapse: collapse;
   background-color: #CCE3DE;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -110,7 +137,8 @@ td {
 }
 
 tr:hover {
-  background: #c1a5a9;
+  /* deep taupe!  */
+  background: #776258;
 }
 tr:hover td {
   color: #F6FFF8;
@@ -120,12 +148,5 @@ tr:hover td {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
-}
-
-.logonav {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 10%;
+  width: 30%;
 }
