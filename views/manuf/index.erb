@@ -1,7 +1,7 @@
 <h2>All Our Current Brand Manufacturer Partners:</h2>
 
 <form action="manuf/new" method="GET">
-  <input class="new-button" type="submit" value="Add New Manufacturer Brand"/>
+  <input class="new-button" type="submit" value="Add New Manufacturer"/>
 </form>
 
 </br>
@@ -28,12 +28,12 @@
       </ul></td>
       <td>
         <form action="manuf/<%= brand.id%>/edit" method="GET">
-          <input class="info-button" type="submit" value="Update Manufacturer Information"/>
+          <input class="info-button" type="submit" value="Update Manufacturer"/>
         </form>
       </td>
       <td>
         <form action="manuf/<%= brand.id%>/delete" method="POST">
-          <input class="info-button" type="submit" value="Delete Manufacturer"/>
+          <input class="info-button" type="submit" value="Delete"/>
         </form>
       </td>
     </tr>

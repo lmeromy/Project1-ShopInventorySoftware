@@ -50,16 +50,16 @@ class Item
   def update_stock_levels
     case self.quantity
     when 0...10
-      @stock_level = 'Reorder Stock Now!'
+      @stock_level = '1 - Reorder Stock!'
     when 10...30
-      @stock_level = 'Low'
+      @stock_level = '2 - Low'
     when 30...60
-      @stock_level = 'Medium'
+      @stock_level = '3 - Medium'
     else
-      @stock_level = 'High'
+      @stock_level = '4 - High'
     end
     self.update()
-    return @stock_level
+    return @stock_level[4..-1]
   end
 
   # this is the percentage markup (aka % increase in retail v wholesale price)
@@ -68,6 +68,7 @@ class Item
     return calc
   end
 
+  # probable rounding or float bug!
   def change_margin(delta)
     calc = delta.to_f/100.0
     new_sellprice = @costprice.to_f / (1.0-calc)
@@ -135,7 +136,8 @@ class Item
     result.each do |item|
       item.update_stock_levels
     end
-    return result
+    sorted = result.sort_by {|x| x.stock_level}
+    return sorted
   end
 
   def self.delete_all()
