@@ -25,6 +25,16 @@ post '/items' do
   redirect to('/items')
 end
 
+# route to sort all items by stock level in the index
+post '/items/sort' do
+  # items = Item.all()
+  # items.each do |item|
+  #   item.update_stock_levels
+  # end
+  @items = Item.sort_stocklevels()
+  redirect to('/items')
+end
+
 # edit route
 get '/items/:id/edit' do
   @item = Item.find(params['id'].to_i)

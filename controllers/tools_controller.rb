@@ -33,8 +33,8 @@ end
 
 # update margin for winter markup
 post '/tools/optimize_winter' do
-  margin_update = params['margin'].to_i
 
+  margin_update = params['margin'].to_i
   @items_winter = Item.all_winter()
 
   for item in @items_winter
@@ -53,8 +53,8 @@ end
 
 # update margin for summer markup
 post '/tools/optimize_summer' do
-  margin_update = params['margin'].to_i
 
+  margin_update = params['margin'].to_i
   @items_summer = Item.all_summer()
 
   for item in @items_summer
@@ -64,42 +64,23 @@ post '/tools/optimize_summer' do
   redirect to('/tools/optimize_summer')
 end
 
+
+# update margin reset ALL to 50%
+post '/tools/reset' do
+
+  # margin_update = params['margin'].to_i
+  @items = Item.all()
+
+  for item in @items
+    item.change_margin(50)
+    item.update()
+  end
+  redirect to('/tools/markup')
+end
+
 # update markup route (for individual items)
 post '/tools/:id' do
   item = Item.new(params)
   item.update()
   redirect to('/tools')
 end
-
-
-# update markup route (for individual items)
-post '/tools/:id' do
-  item = Item.new(params)
-  item.update()
-  redirect to('/tools')
-end
-
-
-
-# # create route for items
-# post '/items' do
-#   item = Item.new(params)
-#   item.save()
-#   redirect to('/items')
-# end
-#
-
-
-# # update route
-# post '/items/:id' do
-#   item = Item.new(params)
-#   item.update()
-#   redirect to('/items')
-# end
-#
-# # delete route
-# post '/items/:id/delete' do
-#   item = Item.find(params['id'].to_i)
-#   item.delete()
-#   redirect to('/items')
-# end
