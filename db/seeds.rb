@@ -28,7 +28,7 @@ item3 = Item.new({'product' => 'Softshell jacket', 'category' => 'General-Cold',
 item4 = Item.new({'product' => 'Insulated down jacket', 'category' => 'General-Cold', 'costprice' => 108, 'sellprice' => 180, 'manuf_id' => manufacturer2.id, 'quantity' => 50})
 item5 = Item.new({'product' => 'SheSkis 160', 'category' => 'Ski', 'costprice' => 400, 'sellprice' => 800, 'manuf_id' => manufacturer1.id, 'quantity' => 50})
 
-item6 = Item.new({'product' => 'Climbing Helmet', 'category' => 'Climb', 'costprice' => 20, 'sellprice' => 55, 'manuf_id' => manufacturer4.id, 'quantity' => 40})
+item6 = Item.new({'product' => 'Climbing Helmet', 'category' => 'Climb', 'costprice' => 20, 'sellprice' => 55, 'manuf_id' => manufacturer4.id, 'quantity' => 100})
 
 item7 = Item.new({'product' => 'Ski Goggles', 'category' => 'Ski', 'costprice' => 20, 'sellprice' => 40, 'manuf_id' => manufacturer1.id, 'quantity' => 30})
 # binding.pry

@@ -7,9 +7,10 @@ also_reload( '/models/*' )
 
 # index route for All items
 get '/items' do
-  @items = Item.all_sort_category()
+  @items = Item.all()
   erb(:"items/index")
 end
+
 
 # new route for items
 get '/items/new' do
@@ -32,7 +33,7 @@ post '/items/sort' do
   #   item.update_stock_levels
   # end
   @items = Item.sort_stocklevels()
-  redirect to('/items')
+  erb(:"items/index")
 end
 
 # edit route

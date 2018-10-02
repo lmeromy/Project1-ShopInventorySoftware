@@ -125,13 +125,16 @@ class Item
   end
 
   def self.sort_stocklevels()
-    items = self.all()
-    items.each do |item|
-      item.update_stock_levels
-    end
+    # items = self.all()
+    # items.each do |item|
+    #   item.update_stock_levels
+    # end
     sql = "SELECT * FROM items ORDER BY stock_level"
     items = SqlRunner.run(sql)
     result = items.map { |item_object| Item.new(item_object)}
+    result.each do |item|
+      item.update_stock_levels
+    end
     return result
   end
 

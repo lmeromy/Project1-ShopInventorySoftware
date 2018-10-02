@@ -1,14 +1,18 @@
 <h2>All Products:</h2>
+<!--
+if deleted = yes then
+alert "this works!"
+end -->
 
-<form action="items/new" method="GET">
+<form action="/items/new" method="GET">
   <input class="info-button" type="submit" value="Add New Item"/>
 </form>
 
 </br>
 <%#  The sort button does NOT yet work! Must
 work on the method in item.rb? maybe? %>
-<form action="items/sort" method="POST">
-  <input class="info-button" type="submit" value="Sort Items by Stock Level"/>
+<form action="/items/sort" method="POST">
+  <input class="info-button" type="submit" value="Sort by Stock Level"/>
 </form>
 
 </br>
@@ -37,10 +41,11 @@ work on the method in item.rb? maybe? %>
       <td><%= item.sellprice %></td>
       <td><%= item.quantity %> </td>
       <td><%= item.update_stock_levels %> </td>
-      <td><form action="items/<%= item.id%>/edit" method="GET">
-        <input class="info-button" type="submit" value="Edit Item Information"/>
+      <td><form action="/items/<%= item.id%>/edit" method="GET">
+        <input class="info-button" type="submit" value="Edit Item"/>
       </form></td>
-      <td><form action="items/<%= item.id%>/delete" method="POST">
+      <td><form action="/items/<%= item.id%>/delete" method="POST">
+        <!-- deleted = yes -->
         <input class="info-button" type="submit" value="Delete Item"/>
       </form></td>
     </tr>
