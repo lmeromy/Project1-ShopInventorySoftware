@@ -6,9 +6,9 @@ also_reload( '/models/*' )
 
 
 # index (aka home) route for TOOLS
-get '/tools' do
-  erb(:"tools/index")
-end
+# get '/tools' do
+#   erb(:"tools/index")
+# end
 
 # tools markup route
 get '/tools/markup' do
@@ -82,5 +82,5 @@ end
 post '/tools/:id' do
   item = Item.new(params)
   item.update()
-  redirect to('/tools')
+  redirect to('/tools/markup')
 end

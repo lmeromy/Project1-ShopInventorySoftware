@@ -1,14 +1,21 @@
 <h2>Manage Product Markup:</h2>
 
 </br>
-<form action="/tools" method="GET">
-  <input class="info-button" type="submit" value="Back to Tools"/>
+
+<form action="/tools/optimize_winter" method="GET">
+  <input class="new-button" type="submit" value="Optimize Profits for Winter"/>
+</form>
+
+</br>
+
+<form action="/tools/optimize_summer" method="GET">
+  <input class="new-button" type="submit" value="Optimize Profits for Summer"/>
 </form>
 
 </br>
 
 <form action="/tools/reset" method="POST">
-  <input class="info-button" type="submit" value="Reset All Margins To 50%"/>
+  <input class="new-button" type="submit" value="Reset All Margins To 50%"/>
 </form>
 
 </br>
@@ -21,7 +28,7 @@
       <th>Product Category</th>
       <th>Margin (%)</th>
       <th>Net Profit (£)</th>
-      <th>Edit Pricing For Sale</th>
+      <th>Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -33,7 +40,7 @@
       <td><%= item.margin %> </td>
       <td><%= item.net_profit %></td>
       <td><form action="/tools/<%= item.id%>/edit" method="GET">
-        <input class="info-button" type="submit" value="Edit Markup"/>
+        <input class="info-button" type="submit" value="Update Markup"/>
       </form></td>
     </tr>
     <% end %>
