@@ -64,12 +64,14 @@ class Item
 
   # this is the percentage markup (aka % increase in retail v wholesale price)
   def margin()
-    calc = ((1.0 - (@costprice.to_f / @sellprice.to_f)) * 100.0).to_i
+    # binding.pry
+    calc = ((1.0 - (@costprice.to_f / @sellprice.to_f)) * 100.0).round().to_i
     return calc
   end
 
   # probable rounding or float bug!
   def change_margin(delta)
+    # binding.pry
     calc = delta.to_f/100.0
     new_sellprice = @costprice.to_f / (1.0-calc)
     self.sellprice = new_sellprice.to_i
