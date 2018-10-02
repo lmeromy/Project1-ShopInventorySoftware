@@ -174,7 +174,6 @@ margin-right: auto;
 
 .myform-row input[type='text'] {
   background-color: #F6FFF8;
-  /* border: 1px solid #D6D9DC; */
   border-radius: 5px;
   width: 30%;
   padding: 5px;
@@ -183,7 +182,6 @@ margin-right: auto;
 
 .myform-row input[type='number'] {
   background-color: #F6FFF8;
-  /* border: 1px solid #D6D9DC; */
   border-radius: 5px;
   width: 30%;
   padding: 5px;
@@ -200,6 +198,7 @@ margin-right: auto;
 
 .myform-row input[type='submit'] {
   background-color: #F6FFF8;
+  color: black;
   border-radius: 5px;
   width: 100%;
   padding: 5px;
