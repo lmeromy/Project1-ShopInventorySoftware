@@ -44,6 +44,7 @@ class TestItem < Minitest::Test
     assert_equal(83, @item1.sellprice)
   end
 
+# this doesnt work for 40!! its 39. float issue?
   def test_change_margin_check_margin()
     @item1.change_margin(60)
     assert_equal(60, @item1.margin)

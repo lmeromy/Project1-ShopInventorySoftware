@@ -26,26 +26,53 @@ end
 
 # tools optimize WINTER markup route
 get '/tools/optimize_winter' do
-  @items_winter = Item.all_winter()
+  @items = Item.all_winter()
   @manufacturers = Manufacturer.all()
   erb(:"tools/optimize_winter")
 end
 
-# winter optimize markup not working yet
-# see the self.all_winter() method in item.rb for issues
+# update margin for winter markup
 post '/tools/optimize_winter' do
   margin_update = params['margin'].to_i
 
   @items_winter = Item.all_winter()
+
   for item in @items_winter
     item.change_margin(margin_update)
     item.update()
   end
-  # @manufacturers = Manufacturer.all()
   redirect to('/tools/optimize_winter')
 end
 
-# update markup route...NOT YET WORKING
+# tools optimize SUMMER markup route
+get '/tools/optimize_summer' do
+  @items = Item.all_summer()
+  @manufacturers = Manufacturer.all()
+  erb(:"tools/optimize_summer")
+end
+
+# update margin for summer markup
+post '/tools/optimize_summer' do
+  margin_update = params['margin'].to_i
+
+  @items_summer = Item.all_summer()
+
+  for item in @items_summer
+    item.change_margin(margin_update)
+    item.update()
+  end
+  redirect to('/tools/optimize_summer')
+end
+
+# update markup route (for individual items)
+post '/tools/:id' do
+  item = Item.new(params)
+  item.update()
+  redirect to('/tools')
+end
+
+
+# update markup route (for individual items)
 post '/tools/:id' do
   item = Item.new(params)
   item.update()

@@ -1,7 +1,7 @@
 <h2>Manage Product Markup:</h2>
 
 </br>
-<form action="tools/" method="GET">
+<form action="/tools" method="GET">
   <input class="info-button" type="submit" value="Back to Tools"/>
 </form>
 
@@ -26,7 +26,7 @@
       <td><%= item.category %></td>
       <td><%= item.margin %> </td>
       <td><%= item.net_profit %></td>
-      <td><form action="tools/<%= item.id%>/edit" method="GET">
+      <td><form action="/tools/<%= item.id%>/edit" method="GET">
         <input class="info-button" type="submit" value="Edit Item Markup Information"/>
       </form></td>
     </tr>

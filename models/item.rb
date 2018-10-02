@@ -103,11 +103,25 @@ class Item
   end
 
   def self.all_winter()
-    sql = "SELECT * FROM items WHERE category = Ski"
-    # values = ["Ski"]
-    items = SqlRunner.run(sql)
-    result = items.map { |item_object| Item.new(item_object)}
-    return result
+    items_winter = []
+    items = Item.all()
+    for item in items
+      if item.category == "Ski" || item.category == 'General-Cold'
+        items_winter << item
+      end
+    end
+    return items_winter
+  end
+
+  def self.all_summer()
+    items_summer = []
+    items = Item.all()
+    for item in items
+      if item.category == "Climb" || item.category == 'General-Warm'
+        items_summer << item
+      end
+    end
+    return items_summer
   end
 
   def self.sort_stocklevels()

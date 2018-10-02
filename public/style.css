@@ -4,13 +4,24 @@ body {
   font-family: "Comic Sans MS", sans-serif;
 }
 
-h1 {
+.header {
   display: block;
+  padding: 30px;
+  text-align: center;
+  background: #6B9080;
+  color: #F6FFF8;
+  justify-content: center;
+}
+
+.grid-row {
+  display: flex;
+  /* change to column b/c set media */
+  flex-direction: row;
 }
 
 .Main-button {
   color: #EAF4F4;
-  /* background-color: #6B9080; */
+  background-color: #6B9080;
   border: #F6FFF8;
   font-family: "Comic Sans MS", sans-serif;
   padding: 5px;
