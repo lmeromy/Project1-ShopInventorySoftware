@@ -47,6 +47,10 @@ class Item
   end
 
   # Shop keepers should be able to view stock levels in a coded manner i.e colour (red/orange/green) or "Low"/"Medium"/"High".
+  # must re-factor!
+  # take out stock_level as a variable, just perform operation on quantity, then
+  # print out the string based on quantity...no need to store it separately!
+  # also no need for 1 - ..etc since if sorting by quantity, that is an integer anyway!
   def update_stock_levels
     case self.quantity
     when 0...10
