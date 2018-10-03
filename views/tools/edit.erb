@@ -2,22 +2,23 @@
 
 <form class="myform" method="POST" action="/tools/<%=@item.id%>">
 
+  <div class="myform-row">
   <label for="product"> Product Name:</label>
   <input id="product" type="text" name="product" value="<%=@item.product%>"/>
 
   <label for="cat"> Product Category:</label>
   <input id="cat" type="text" name="category" value="<%=@item.category%>"/>
+  </div>
 
-  <label for="wholesale">Wholesale Price:</label>
+  <div class="myform-row">
+  <label for="wholesale">Wholesale £:</label>
   <input id="wholesale" type="number" name="costprice" value="<%=@item.costprice%>"/>
 
-
-  <div class="update-markup">
-  <label for="retail">UPDATE Retail Price:</label>
+  <label for="retail">Update Retail £:</label>
   <input id="retail" type="number" name="sellprice" value="<%=@item.sellprice%>"/>
   </div>
 
-
+  <div class="myform-row">
   <label for="manuf-select">Select a Brand:</label>
   <select name="manuf_id" id="manuf-select" selected="<%=@item.manuf_id%>">
     <% @all_items.each do |stock| %>
@@ -31,7 +32,9 @@
 
   <label for="quantity">Quantity in stock:</label>
   <input id="quantity" type="number" name="quantity" value="<%=@item.quantity%>"/>
+  </div>
 
+  <div class="myform-row">
   <input type="submit" value="Update Item Markup"/>
-
+  </div>
 </form>
