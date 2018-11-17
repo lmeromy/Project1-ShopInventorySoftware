@@ -1,11 +1,12 @@
 # Solo Project: Shop Inventory Software
 
-Project brief: Build software for a shop keeper who requires an app which allows them to keep track of their shop's inventory.
+### Project brief
+Build software for a shop keeper who requires an app which allows them to keep track of their shop's inventory.
 Use the Model-View-Controller (MVC) architecture pattern to structure your software.
 
 I built a product called Warehouser and implemented it with a hypothetical outdoor recreation gear and clothing retailer called "Adventures-R-Us".
 
-Developed using the following technologies: 
+### Developed using the following technologies: 
 * Ruby
 * HTML 
 * CSS
