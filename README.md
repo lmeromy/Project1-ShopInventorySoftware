@@ -7,6 +7,8 @@ Use the Model-View-Controller (MVC) architecture pattern to structure your softw
 I built a product called Warehouser and implemented it with a hypothetical outdoor recreation gear and clothing retailer called "Adventures-R-Us". View current product:
 http://warehouser-manage-stock.herokuapp.com/
 
+UPDATE: as of Jan 2023, this app is no longer live because Heroku got rid of their free tier, and I haven't redeployed elsewhere.
+
 Improvements for the future: Re-factor to make app responsive for different screen sizes and media. 
 
 ### Developed using the following technologies: 
